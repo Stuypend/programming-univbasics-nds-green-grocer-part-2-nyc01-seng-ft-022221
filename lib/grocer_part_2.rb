@@ -4,7 +4,7 @@ def apply_coupons(cart, coupons)
   couponsb = coupons[0]
   cart.each do
     |item|
-    if(coupons[:item] == item[:item])
+    if(couponsb[:item] == item[:item])
       item[:count] -= couponsb[:num]
       new_thing = {}
       new_thing[:item] = "#{couponsb[:item]} W/COUPON"
