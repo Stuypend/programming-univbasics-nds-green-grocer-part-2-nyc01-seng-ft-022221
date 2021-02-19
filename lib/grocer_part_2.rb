@@ -14,6 +14,7 @@ def apply_coupons(cart, coupons)
       new_thing = {}
       new_thing[:item] = "#{couponsb[:item]} W/COUPON"
       new_thing[:price] = couponsb[:cost]/couponsb[:num]
+      new_thing[:price].round(2)
       new_thing[:clearance] = true
       new_thing[:count] = couponsb[:num]
       cart.push(new_thing)
@@ -32,6 +33,7 @@ def apply_clearance(cart)
     |item|
     if(item[:clearance])
       item[:price] *= 0.8
+      item[:price].round(2)
     end
   end
   return cart
