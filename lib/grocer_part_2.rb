@@ -77,4 +77,10 @@ otherthing = [
   {:item => "AVOCADO", :num => 2, :cost => 5.00}
 ]
 
-puts apply_coupons(thing, otherthing)
+xy = [
+  {:item => "PEANUT BUTTER", :price => 3.00, :clearance => true,  :count => 2},
+  {:item => "KALE", :price => 3.00, :clearance => false, :count => 3},
+  {:item => "SOY MILK", :price => 4.50, :clearance => true,  :count => 1}
+]
+
+puts apply_clearance(xy)
