@@ -40,6 +40,17 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
+
+  final = apply_coupons(cart, coupons)
+  final = apply_clearance(final)
+  total = 0
+
+  final.each do
+    |item|
+    total += item[:price]*item[]:count]
+  end
+
+  return total > 100 ? (total*0.9).round(2) : total
   # Consult README for inputs and outputs
   #
   # This method should call
