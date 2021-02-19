@@ -17,7 +17,7 @@ if(coupons != nil && coupons.size > 0)
           new_thing = {}
           new_thing[:item] = "#{coupon[:item]} W/COUPON"
           new_thing[:price] = coupon[:cost]/coupon[:num]
-          new_thing[:price].round(2)
+          new_thing[:price] = new_thing[:price].round(2)
           new_thing[:clearance] = true
           new_thing[:count] = coupon[:num]
           cart.push(new_thing)
