@@ -47,7 +47,7 @@ def checkout(cart, coupons)
 
   final.each do
     |item|
-    total += item[:price]*item[]:count]
+    total += item[:price]*item[:count]
   end
 
   return total > 100 ? (total*0.9).round(2) : total
