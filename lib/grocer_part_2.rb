@@ -6,20 +6,25 @@ def apply_coupons(cart, coupons)
   #
   # REMEMBER: This method **should** update cart
 
-  couponsb = coupons[0]
-  cart.each do
-    |item|
-    if(couponsb[:item] == item[:item])
-      item[:count] -= couponsb[:num]
-      new_thing = {}
-      new_thing[:item] = "#{couponsb[:item]} W/COUPON"
-      new_thing[:price] = couponsb[:cost]/couponsb[:num]
-      new_thing[:price].round(2)
-      new_thing[:clearance] = true
-      new_thing[:count] = couponsb[:num]
-      cart.push(new_thing)
+if(coupons != nil && coupons.size > 0)
+    coupons.each do
+      |coupon|
+
+      cart.each do
+        |item|
+        if(coupon[:item] == item[:item])
+          item[:count] -= coupon[:num]
+          new_thing = {}
+          new_thing[:item] = "#{coupon[:item]} W/COUPON"
+          new_thing[:price] = coupon[:cost]/coupon[:num]
+          new_thing[:price].round(2)
+          new_thing[:clearance] = true
+          new_thing[:count] = coupon[:num]
+          cart.push(new_thing)
+        end
+      end
     end
-  end
+end
   return cart
 
 end
@@ -62,3 +67,14 @@ def checkout(cart, coupons)
   # BEFORE it begins the work of calculating the total (or else you might have
   # some irritated customers
 end
+
+thing = [
+  {:item => "AVOCADO", :price => 3.00, :clearance => true, :count => 3},
+  {:item => "KALE",    :price => 3.00, :clearance => false, :count => 1}
+]
+
+otherthing = [
+  {:item => "AVOCADO", :num => 2, :cost => 5.00}
+]
+
+puts apply_coupons(thing, otherthing)
