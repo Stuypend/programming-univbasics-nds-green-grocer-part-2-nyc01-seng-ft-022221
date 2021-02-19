@@ -5,7 +5,7 @@ def apply_coupons(cart, coupons)
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
-  
+
   couponsb = coupons[0]
   cart.each do
     |item|
@@ -20,7 +20,7 @@ def apply_coupons(cart, coupons)
     end
   end
   return cart
-  
+
 end
 
 def apply_clearance(cart)
